@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KaziKonect - Unlock Potential. Shape the Future.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+        }
+        .cta-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1601835925018-3c48a614c55a?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Indonesian Batik Pattern Background */
+        .batik-bg {
+            background-color: #ffffff;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e5e7eb' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .tab-active {
+            border-bottom: 3px solid #10b981;
+            color: #10b981;
+            font-weight: 600;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pulse-animate {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        /* Spinner for AI features */
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #10b981;
+            animation: spin 1s ease infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header --><header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-emerald-600">
+                KaziKonect
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="lang-en" class="text-sm font-semibold text-emerald-600" data-lang="en">EN</button>
+                <span class="text-gray-300">|</span>
+                <button id="lang-id" class="text-sm font-semibold text-gray-400" data-lang="id">ID</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content --><main>
+        <!-- Hero Section --><section class="hero-bg text-white">
+            <div class="container mx-auto px-6 py-24 md:py-32 text-center">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4" data-lang-key="hero_headline" data-aos="fade-in" data-aos-delay="200">Unlock Potential. Shape the Future.</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8" data-lang-key="hero_subheadline" data-aos="fade-in" data-aos-delay="400">The all-in-one platform empowering Indonesian schools to build the critical skills students need for university success and beyond.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4" data-aos="fade-in" data-aos-delay="600">
+                    <a href="#demo" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 pulse-animate w-full sm:w-auto" data-lang-key="hero_cta1">Request a Live Demo</a>
+                    <a href="#features" class="bg-white/20 hover:bg-white/30 text-white font-bold py-3 px-8 rounded-full transition duration-300 w-full sm:w-auto" data-lang-key="hero_cta2">See How It Works</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Challenge Section --><section class="py-16 md:py-24 batik-bg">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-lang-key="challenge_headline" data-aos="fade-up">The Gap Between a Diploma and True Readiness</h2>
+                 <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    <svg class="mx-auto h-16 w-auto text-cyan-500 mb-6" viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Left side of the bridge --><path d="M5 25 L 40 25" />
+                        <path d="M5 25 L 15 45" />
+                        <path d="M40 25 L 30 45" />
+                        <line x1="15" y1="25" x2="15" y2="10" />
+                        <line x1="30" y1="25" x2="30" y2="10" />
+                        
+                        <!-- Right side of the bridge --><path d="M60 25 L 95 25" />
+                        <path d="M60 25 L 70 45" />
+                        <path d="M95 25 L 85 45" />
+                        <line x1="70" y1="25" x2="70" y2="10" />
+                        <line x1="85" y1="25" x2="85" y2="10" />
+                        
+                        <!-- Wavy water --><path d="M0 48 Q 12.5 44, 25 48 T 50 48 T 75 48 T 100 48" stroke-width="1.5" class="text-cyan-400 opacity-70" />
+                        <path d="M0 50 Q 12.5 46, 25 50 T 50 50 T 75 50 T 100 50" stroke-width="1.5" class="text-cyan-300 opacity-50" />
+                    </svg>
+                     <p class="text-gray-600 text-lg" data-lang-key="challenge_body">In Indonesia's competitive landscape, academic grades are only part of the story. Employers and top universities report a critical gap: only <strong>26% of Indonesian youth</strong> feel confident in their employability skills. Teachers are pressured to integrate creativity, critical thinking, and problem-solving into a packed curriculum, often with limited resources. How can your school bridge this gap and ensure your graduates are truly future-ready?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Solution Section --><section class="py-16 md:py-24">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4" data-lang-key="solution_headline">Introducing KaziKonect: Your Bridge to College & Career Success</h2>
+                    <p class="text-gray-600 text-lg mb-6" data-lang-key="solution_body">KaziKonect is a modular, technology-enabled platform designed specifically for the needs of Indonesian schools. We provide practical, hands-on learning modules that seamlessly integrate into your existing classroom workflows. Empower your teachers, engage your students, and build measurable skills without adding to the workload.</p>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left" data-aos-delay="200">
+                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Indonesian students in uniform collaborating on a laptop" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features Section --><section id="features" class="py-16 md:py-24 batik-bg">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold" data-lang-key="features_headline" data-aos="fade-up">Everything You Need in One Powerful Platform</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature 1 --><div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-emerald-100 text-emerald-600 p-3 rounded-full mr-4">
+                                <!-- Icon: Document & Pencil --><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold" data-lang-key="feature1_title">Teacher-Guided & Student-Led Projects</h3>
+                        </div>
+                        <p class="text-gray-600" data-lang-key="feature1_desc">Ready-made lesson guides and project-based learning modules that fit directly into your curriculum, saving teachers valuable prep time.</p>
+                    </div>
+                    <!-- Feature 2 --><div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-emerald-100 text-emerald-600 p-3 rounded-full mr-4">
+                                <!-- Icon: Chart & Portfolio --><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold" data-lang-key="feature2_title">E-portfolio & 4C Skills Tracker</h3>
+                        </div>
+                        <p class="text-gray-600" data-lang-key="feature2_desc">Students build a dynamic digital portfolio showcasing their growth in Creativity, Collaboration, Critical Thinking, and Communication—proven evidence for university applications.</p>
+                    </div>
+                    <!-- Feature 3 --><div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-emerald-100 text-emerald-600 p-3 rounded-full mr-4">
+                                <!-- Icon: AI/Robot --><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold" data-lang-key="feature3_title">AI-Powered Formative Feedback Coach</h3>
+                        </div>
+                        <p class="text-gray-600" data-lang-key="feature3_desc">Instant, constructive feedback helps students refine their work and develop a growth mindset, anytime.</p>
+                    </div>
+                     <!-- Feature 4 --><div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="400">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-emerald-100 text-emerald-600 p-3 rounded-full mr-4">
+                               <!-- Icon: University Gateway --><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12,2L2,7l10,5l10-5L12,2z M2,17l10,5l10-5 M2,12l10,5l10-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <h3 class="text-xl font-bold" data-lang-key="feature4_title">University Partnership Gateway</h3>
+                        </div>
+                        <p class="text-gray-600" data-lang-key="feature4_desc">Connect your students with partner universities and scholarship opportunities that value the practical skills built on KaziKonnect.</p>
+                    </div>
+                     <!-- Feature 5 --><div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="500">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-emerald-100 text-emerald-600 p-3 rounded-full mr-4">
+                                <!-- Icon: Parent/Family --><svg xmlns="http://www.3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold" data-lang-key="feature5_title">Parent "Skill-Story" Portal</h3>
+                        </div>
+                        <p class="text-gray-600" data-lang-key="feature5_desc">Keep parents engaged and informed with a clear view of their child's skill development and project milestones.</p>
+                    </div>
+                     <!-- Feature 6 --><div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="600">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-emerald-100 text-emerald-600 p-3 rounded-full mr-4">
+                               <!-- Icon: Wifi/Offline --><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.556A5.5 5.5 0 0112 15c1.472 0 2.842.55 3.889 1.556M12 21a9 9 0 01-9-9 9 9 0 019-9 9 9 0 019 9 9 9 0 01-9 9z" /></svg>
+                            </div>
+                            <h3 class="text-xl font-bold" data-lang-key="feature6_title">Offline & Low-Bandwidth Functionality</h3>
+                        </div>
+                        <p class="text-gray-600" data-lang-key="feature6_desc">Designed for the Indonesian context, our platform ensures learning continues even with intermittent internet connectivity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- For Your Community Section --><section class="py-16 md:py-24">
+            <div class="container mx-auto px-6" data-aos="fade-up">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold" data-lang-key="community_headline">For Your Entire School Community</h2>
+                </div>
+                <div class="max-w-4xl mx-auto">
+                    <div class="border-b border-gray-200">
+                        <nav class="flex flex-wrap justify-center -mb-px space-x-2 sm:space-x-8" aria-label="Tabs">
+                            <button class="tab-button tab-active py-4 px-2 sm:px-4 text-sm font-medium text-gray-500 hover:text-emerald-600 transition-colors duration-300" data-tab="administrators" data-lang-key="tab_admin">School Administrators</button>
+                            <button class="tab-button py-4 px-2 sm:px-4 text-sm font-medium text-gray-500 hover:text-emerald-600 transition-colors duration-300" data-tab="teachers" data-lang-key="tab_teachers">Teachers</button>
+                            <button class="tab-button py-4 px-2 sm:px-4 text-sm font-medium text-gray-500 hover:text-emerald-600 transition-colors duration-300" data-tab="students" data-lang-key="tab_students">Students</button>
+                            <button class="tab-button py-4 px-2 sm:px-4 text-sm font-medium text-gray-500 hover:text-emerald-600 transition-colors duration-300" data-tab="parents" data-lang-key="tab_parents">Parents</button>
+                        </nav>
+                    </div>
+                    <div class="mt-8">
+                        <!-- Tab Content --><div id="administrators-content" class="tab-content fade-in">
+                            <p class="text-lg text-gray-600" data-lang-key="community_admin_desc">Enhance your school's reputation, attract top students, and provide universities with compelling data on graduate readiness. Streamline skill tracking and curriculum mapping with a single, cost-effective solution.</p>
+                        </div>
+                        <div id="teachers-content" class="tab-content fade-in hidden">
+                             <p class="text-lg text-gray-600" data-lang-key="community_teachers_desc">Spend less time planning and more time inspiring. Access a library of ready-to-use projects and easily verify student work, all while integrating 21st-century skills without disrupting your lesson plans.</p>
+                        </div>
+                         <div id="students-content" class="tab-content fade-in hidden">
+                            <p class="text-lg text-gray-600 mb-6" data-lang-key="community_students_desc">Go beyond grades. Build an impressive e-portfolio, gain skills that matter, and stand out in university applications. Prepare for your future with engaging, real-world projects.</p>
+                            <!-- AI Essay Enhancer --><div class="bg-emerald-50 border border-emerald-200 p-6 rounded-lg">
+                                <h4 class="text-xl font-bold text-emerald-800 mb-3" data-lang-key="essay_enhancer_title">✨ AI University Application Essay Enhancer</h4>
+                                <p class="text-emerald-700 mb-4" data-lang-key="essay_enhancer_desc">Paste your draft essay below, select a tone, and let our AI help you shine.</p>
+                                <textarea id="essay-input" class="w-full p-3 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 transition" rows="6" placeholder-data-lang-key="essay_placeholder"></textarea>
+                                <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
+                                    <select id="essay-tone" class="w-full sm:w-1/3 p-3 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 transition">
+                                        <option value="More Professional" data-lang-key="tone_professional">More Professional</option>
+                                        <option value="More Persuasive" data-lang-key="tone_persuasive">More Persuasive</option>
+                                        <option value="Clearer" data-lang-key="tone_clearer">Clearer</option>
+                                    </select>
+                                    <button id="enhance-essay-btn" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-6 rounded-md transition duration-300 w-full sm:w-auto flex items-center justify-center">
+                                        <span data-lang-key="enhance_button">Enhance My Essay</span>
+                                    </button>
+                                </div>
+                                <div id="essay-enhancer-loading" class="hidden my-4 flex justify-center"><div class="spinner"></div></div>
+                                <div id="enhanced-essay-output" class="mt-6 p-4 bg-white border border-gray-200 rounded-md hidden"></div>
+                            </div>
+                        </div>
+                         <div id="parents-content" class="tab-content fade-in hidden">
+                             <p class="text-lg text-gray-600" data-lang-key="community_parents_desc">Watch your child thrive. See tangible proof of their development in crucial life skills and feel confident in their preparation for the challenges of higher education and a global career.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Project Idea Generator Section --><section class="py-16 md:py-24 batik-bg">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3" data-lang-key="ai_generator_headline">✨ Spark Creativity in Your Classroom</h2>
+                    <p class="text-gray-600 text-lg mb-6" data-lang-key="ai_generator_desc">Need inspiration? Enter a subject and let our AI generate innovative project-based learning ideas for your students.</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <input type="text" id="project-subject" class="w-full p-3 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 transition" placeholder-data-lang-key="subject_placeholder">
+                        <button id="generate-ideas-btn" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-6 rounded-md transition duration-300 flex items-center justify-center">
+                            <span data-lang-key="generate_button">Generate Ideas</span>
+                        </button>
+                    </div>
+                    <div id="idea-generator-loading" class="hidden my-6 flex justify-center"><div class="spinner"></div></div>
+                    <div id="project-ideas-output" class="mt-8 text-left p-6 bg-gray-50 border border-gray-200 rounded-md hidden"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Partner Schools / Testimonials Section --><section class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold" data-lang-key="partners_headline" data-aos="fade-up">Trusted by Leading Indonesian Educators</h2>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2" data-aos="fade-right">
+                        <div class="bg-white p-8 rounded-lg shadow-lg mb-6">
+                            <p class="text-gray-600 italic mb-4" data-lang-key="testimonial1_text">"KaziKonect has transformed how we approach skill development. Our students are more engaged, and our teachers have the tools they need to connect curriculum to real-world challenges. The e-portfolios have been a game-changer for university applications."</p>
+                            <div class="font-bold text-emerald-600" data-lang-key="testimonial1_author">— Ibu Siti, Principal, SMA Pelita Harapan</div>
+                        </div>
+                        <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-right" data-aos-delay="100">
+                            <p class="text-gray-600 italic mb-4" data-lang-key="testimonial2_text">"Finally, a platform that understands the challenges we face in Indonesia. The low-bandwidth feature is crucial, and the AI idea generator helps me create fresh, exciting projects for my history classes."</p>
+                            <div class="font-bold text-emerald-600" data-lang-key="testimonial2_author">— Bapak Budi, Grade 12 Teacher, Jakarta Intercultural School</div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2" data-aos="fade-left" data-aos-delay="200">
+                        <div class="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden shadow-2xl">
+                             <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Indonesian educators collaborating in a professional setting" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Final CTA Section -->
+            <div class="container mx-auto px-6 py-24 text-center" data-aos="zoom-in">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4" data-lang-key="cta_headline">Ready to Empower the Next Generation of Indonesian Leaders?</h2>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8" data-lang-key="cta_body">Schedule a personalized demo with our team today to see how KaziKonect can elevate your students, support your teachers, and transform your school.</p>
+                <a href="mailto:atillaagussalam@gse.harvard.edu" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-10 rounded-full transition duration-300 text-lg transform hover:scale-105 inline-block pulse-animate" data-lang-key="cta_button">Book My Free Demo</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer --><footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 KaziKonect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- INITIALIZE ANIMATIONS ---
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50,
+            });
+
+            // --- LANGUAGE SWITCHER ---
+            const translations = {
+                en: {
+                    hero_headline: "Unlock Potential. Shape the Future.",
+                    hero_subheadline: "The all-in-one platform empowering Indonesian schools to build the critical skills students need for university success and beyond.",
+                    hero_cta1: "Request a Live Demo",
+                    hero_cta2: "See How It Works",
+                    challenge_headline: "The Gap Between a Diploma and True Readiness",
+                    challenge_body: "In Indonesia's competitive landscape, academic grades are only part of the story. Employers and top universities report a critical gap: only <strong>26% of Indonesian youth</strong> feel confident in their employability skills. Teachers are pressured to integrate creativity, critical thinking, and problem-solving into a packed curriculum, often with limited resources. How can your school bridge this gap and ensure your graduates are truly future-ready?",
+                    solution_headline: "Introducing KaziKonect: Your Bridge to College & Career Success",
+                    solution_body: "KaziKonect is a modular, technology-enabled platform designed specifically for the needs of Indonesian schools. We provide practical, hands-on learning modules that seamlessly integrate into your existing classroom workflows. Empower your teachers, engage your students, and build measurable skills without adding to the workload.",
+                    features_headline: "Everything You Need in One Powerful Platform",
+                    feature1_title: "Teacher-Guided & Student-Led Projects",
+                    feature1_desc: "Ready-made lesson guides and project-based learning modules that fit directly into your curriculum, saving teachers valuable prep time.",
+                    feature2_title: "E-portfolio & 4C Skills Tracker",
+                    feature2_desc: "Students build a dynamic digital portfolio showcasing their growth in Creativity, Collaboration, Critical Thinking, and Communication—proven evidence for university applications.",
+                    feature3_title: "AI-Powered Formative Feedback Coach",
+                    feature3_desc: "Instant, constructive feedback helps students refine their work and develop a growth mindset, anytime.",
+                    feature4_title: "University Partnership Gateway",
+                    feature4_desc: "Connect your students with partner universities and scholarship opportunities that value the practical skills built on KaziKonnect.",
+                    feature5_title: "Parent \"Skill-Story\" Portal",
+                    feature5_desc: "Keep parents engaged and informed with a clear view of their child's skill development and project milestones.",
+                    feature6_title: "Offline & Low-Bandwidth Functionality",
+                    feature6_desc: "Designed for the Indonesian context, our platform ensures learning continues even with intermittent internet connectivity.",
+                    community_headline: "For Your Entire School Community",
+                    tab_admin: "School Administrators",
+                    tab_teachers: "Teachers",
+                    tab_students: "Students",
+                    tab_parents: "Parents",
+                    community_admin_desc: "Enhance your school's reputation, attract top students, and provide universities with compelling data on graduate readiness. Streamline skill tracking and curriculum mapping with a single, cost-effective solution.",
+                    community_teachers_desc: "Spend less time planning and more time inspiring. Access a library of ready-to-use projects and easily verify student work, all while integrating 21st-century skills without disrupting your lesson plans.",
+                    community_students_desc: "Go beyond grades. Build an impressive e-portfolio, gain skills that matter, and stand out in university applications. Prepare for your future with engaging, real-world projects.",
+                    cta_headline: "Ready to Empower the Next Generation of Indonesian Leaders?",
+                    cta_body: "Schedule a personalized demo with our team today to see how KaziKonect can elevate your students, support your teachers, and transform your school.",
+                    cta_button: "Book My Free Demo",
+                    ai_generator_headline: "✨ Spark Creativity in Your Classroom",
+                    ai_generator_desc: "Need inspiration? Enter a subject and let our AI generate innovative project-based learning ideas for your students.",
+                    subject_placeholder: "e.g., Biology, History, Civics",
+                    generate_button: "Generate Ideas",
+                    essay_enhancer_title: "✨ AI University Application Essay Enhancer",
+                    essay_enhancer_desc: "Paste your draft essay below, select a tone, and let our AI help you shine.",
+                    essay_placeholder: "Paste your essay here...",
+                    tone_professional: "More Professional",
+                    tone_persuasive: "More Persuasive",
+                    tone_clearer: "Clearer",
+                    enhance_button: "Enhance My Essay",
+                    partners_headline: "Trusted by Leading Indonesian Educators",
+                    testimonial1_text: "\"KaziKonect has transformed how we approach skill development. Our students are more engaged, and our teachers have the tools they need to connect curriculum to real-world challenges. The e-portfolios have been a game-changer for university applications.\"",
+                    testimonial1_author: "— Ibu Siti, Principal, SMA Pelita Harapan",
+                    testimonial2_text: "\"Finally, a platform that understands the challenges we face in Indonesia. The low-bandwidth feature is crucial, and the AI idea generator helps me create fresh, exciting projects for my history classes.\"",
+                    testimonial2_author: "— Bapak Budi, Grade 12 Teacher, Jakarta Intercultural School",
+                },
+                id: {
+                    hero_headline: "Membuka Potensi. Membentuk Masa Depan.",
+                    hero_subheadline: "Platform terintegrasi untuk memberdayakan sekolah di Indonesia dalam membangun keterampilan kritis yang dibutuhkan siswa untuk sukses di universitas dan karir masa depan.",
+                    hero_cta1: "Jadwalkan Demo Langsung",
+                    hero_cta2: "Lihat Cara Kerjanya",
+                    challenge_headline: "Kesenjangan Antara Ijazah dan Kesiapan Sebenarnya",
+                    challenge_body: "Dalam lanskap persaingan di Indonesia, nilai akademis hanyalah sebagian dari cerita. Perusahaan dan universitas ternama melaporkan adanya kesenjangan kritis: hanya <strong>26% pemuda Indonesia</strong> yang percaya diri dengan keterampilan kerja mereka. Para guru dituntut untuk mengintegrasikan kreativitas, pemikiran kritis, dan pemecahan masalah ke dalam kurikulum yang padat, seringkali dengan sumber daya terbatas. Bagaimana sekolah Anda dapat menjembatani kesenjangan ini dan memastikan lulusan Anda benar-benar siap menghadapi masa depan?",
+                    solution_headline: "Memperkenalkan KaziKonect: Jembatan Anda Menuju Sukses di Perguruan Tinggi & Karir",
+                    solution_body: "KaziKonect adalah platform modular berbasis teknologi yang dirancang khusus untuk kebutuhan sekolah di Indonesia. Kami menyediakan modul pembelajaran langsung yang praktis dan terintegrasi secara mulus ke dalam alur kerja kelas Anda yang sudah ada. Berdayakan guru Anda, libatkan siswa Anda, dan bangun keterampilan yang terukur tanpa menambah beban kerja.",
+                    features_headline: "Semua yang Anda Butuhkan dalam Satu Platform Andal",
+                    feature1_title: "Proyek Terpandu Guru & Dipimpin Siswa",
+                    feature1_desc: "Panduan pelajaran siap pakai dan modul pembelajaran berbasis proyek yang sesuai langsung dengan kurikulum Anda, menghemat waktu persiapan guru yang berharga.",
+                    feature2_title: "E-portfolio & Pelacak Keterampilan 4C",
+                    feature2_desc: "Siswa membangun portofolio digital dinamis yang menunjukkan perkembangan mereka dalam Kreativitas, Kolaborasi, Berpikir Kritis, dan Komunikasi—bukti nyata untuk aplikasi universitas.",
+                    feature3_title: "Pelatih Umpan Balik Formatif Berbasis AI",
+                    feature3_desc: "Umpan balik formatif yang instan dan konstruktif membantu siswa menyempurnakan pekerjaan mereka dan mengembangkan pola pikir bertumbuh, kapan saja.",
+                    feature4_title: "Gerbang Kemitraan Universitas",
+                    feature4_desc: "Hubungkan siswa Anda dengan universitas mitra dan peluang beasiswa yang menghargai keterampilan praktis yang dibangun di KaziKonect.",
+                    feature5_title: "Portal \"Cerita Keterampilan\" Orang Tua",
+                    feature5_desc: "Jaga agar orang tua tetap terlibat dan terinformasi dengan gambaran yang jelas tentang perkembangan keterampilan dan pencapaian proyek anak mereka.",
+                    feature6_title: "Fungsionalitas Offline & Bandwidth Rendah",
+                    feature6_desc: "Dirancang untuk konteks Indonesia, platform kami memastikan pembelajaran tetap berjalan bahkan dengan konektivitas internet yang tidak stabil.",
+                    community_headline: "Untuk Seluruh Komunitas Sekolah Anda",
+                    tab_admin: "Administrator Sekolah",
+                    tab_teachers: "Guru",
+                    tab_students: "Siswa",
+                    tab_parents: "Orang Tua",
+                    community_admin_desc: "Tingkatkan reputasi sekolah Anda, tarik siswa terbaik, dan berikan data yang meyakinkan tentang kesiapan lulusan kepada universitas. Sederhanakan pelacakan keterampilan dan pemetaan kurikulum dengan satu solusi yang hemat biaya.",
+                    community_teachers_desc: "Habiskan lebih sedikit waktu untuk merencanakan dan lebih banyak waktu untuk menginspirasi. Akses pustaka proyek siap pakai dan verifikasi hasil kerja siswa dengan mudah, sambil mengintegrasikan keterampilan abad ke-21 tanpa mengganggu rencana pelajaran Anda.",
+                    community_students_desc: "Lampaui sekadar nilai. Bangun e-portfolio yang mengesankan, dapatkan keterampilan yang penting, dan jadilah yang terdepan dalam aplikasi universitas. Persiapkan masa depan Anda dengan proyek dunia nyata yang menarik.",
+                    cta_headline: "Siap Memberdayakan Generasi Pemimpin Indonesia Berikutnya?",
+                    cta_body: "Jadwalkan demo personal dengan tim kami hari ini untuk melihat bagaimana KaziKonect dapat mengangkat prestasi siswa Anda, mendukung guru Anda, dan mentransformasi sekolah Anda.",
+                    cta_button: "Pesan Demo Gratis Saya",
+                    ai_generator_headline: "✨ Ciptakan Kreativitas di Kelas Anda",
+                    ai_generator_desc: "Butuh inspirasi? Masukkan mata pelajaran dan biarkan AI kami menghasilkan ide pembelajaran berbasis proyek yang inovatif untuk siswa Anda.",
+                    subject_placeholder: "cth: Biologi, Sejarah, Kewarganegaraan",
+                    generate_button: "Hasilkan Ide",
+                    essay_enhancer_title: "✨ Penyempurna Esai Aplikasi Universitas AI",
+                    essay_enhancer_desc: "Tempelkan draf esai Anda di bawah, pilih nada, dan biarkan AI kami membantu Anda bersinar.",
+                    essay_placeholder: "Tempel esai Anda di sini...",
+                    tone_professional: "Lebih Profesional",
+                    tone_persuasive: "Lebih Persuasif",
+                    tone_clearer: "Lebih Jelas",
+                    enhance_button: "Sempurnakan Esai Saya",
+                    partners_headline: "Dipercaya oleh Pendidik Terkemuka di Indonesia",
+                    testimonial1_text: "\"KaziKonect telah mengubah cara kami mendekati pengembangan keterampilan. Siswa kami lebih terlibat, dan guru kami memiliki alat yang mereka butuhkan untuk menghubungkan kurikulum dengan tantangan dunia nyata. E-portfolio telah menjadi pengubah permainan untuk aplikasi universitas.\"",
+                    testimonial1_author: "— Ibu Siti, Kepala Sekolah, SMA Pelita Harapan",
+                    testimonial2_text: "\"Akhirnya, sebuah platform yang memahami tantangan yang kami hadapi di Indonesia. Fitur bandwidth rendah sangat penting, dan generator ide AI membantu saya membuat proyek baru yang menarik untuk kelas sejarah saya.\"",
+                    testimonial2_author: "— Bapak Budi, Guru Kelas 12, Jakarta Intercultural School",
+                }
+            };
+
+            const langEnBtn = document.getElementById('lang-en');
+            const langIdBtn = document.getElementById('lang-id');
+            const translatableElements = document.querySelectorAll('[data-lang-key]');
+            const placeholderElements = document.querySelectorAll('[placeholder-data-lang-key]');
+            let currentLang = 'en';
+
+            function setLanguage(lang) {
+                currentLang = lang;
+                translatableElements.forEach(el => {
+                    const key = el.getAttribute('data-lang-key');
+                    if (translations[lang][key]) {
+                        el.innerHTML = translations[lang][key];
+                    }
+                });
+
+                placeholderElements.forEach(el => {
+                     const key = el.getAttribute('placeholder-data-lang-key');
+                    if (translations[lang][key]) {
+                        el.placeholder = translations[lang][key];
+                    }
+                });
+
+                if (lang === 'en') {
+                    langEnBtn.classList.remove('text-gray-400');
+                    langEnBtn.classList.add('text-emerald-600');
+                    langIdBtn.classList.remove('text-emerald-600');
+                    langIdBtn.classList.add('text-gray-400');
+                    document.documentElement.lang = 'en';
+                } else {
+                    langIdBtn.classList.remove('text-gray-400');
+                    langIdBtn.classList.add('text-emerald-600');
+                    langEnBtn.classList.remove('text-emerald-600');
+                    langEnBtn.classList.add('text-gray-400');
+                    document.documentElement.lang = 'id';
+                }
+            }
+
+            langEnBtn.addEventListener('click', () => setLanguage('en'));
+            langIdBtn.addEventListener('click', () => setLanguage('id'));
+            
+            // --- TABS ---
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('tab-active'));
+                    button.classList.add('tab-active');
+                    tabContents.forEach(content => content.classList.add('hidden'));
+                    const tabId = button.dataset.tab;
+                    const contentToShow = document.getElementById(`${tabId}-content`);
+                    if(contentToShow) contentToShow.classList.remove('hidden');
+                });
+            });
+
+            // --- GEMINI API INTEGRATION ---
+            const apiKey = ""; // Leave empty for Canvas environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+            async function callGeminiAPI(prompt) {
+                const payload = {
+                    contents: [{ parts: [{ text: prompt }] }]
+                };
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!response.ok) {
+                        throw new Error(`API call failed with status: ${response.status}`);
+                    }
+                    const result = await response.json();
+                    return result.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't generate a response. Please try again.";
+                } catch (error) {
+                    console.error("Gemini API Error:", error);
+                    return "An error occurred while contacting the AI. Please check the console for details.";
+                }
+            }
+
+            // --- AI Project Idea Generator ---
+            const generateBtn = document.getElementById('generate-ideas-btn');
+            const subjectInput = document.getElementById('project-subject');
+            const ideasOutput = document.getElementById('project-ideas-output');
+            const ideaLoader = document.getElementById('idea-generator-loading');
+
+            generateBtn.addEventListener('click', async () => {
+                const subject = subjectInput.value.trim();
+                if (!subject) {
+                    ideasOutput.innerHTML = '<p class="text-red-500">Please enter a subject.</p>';
+                    ideasOutput.classList.remove('hidden');
+                    return;
+                }
+
+                ideaLoader.classList.remove('hidden');
+                ideasOutput.classList.add('hidden');
+                
+                const prompt = `Act as an expert curriculum designer for Indonesian secondary schools. Generate 3 creative, project-based learning ideas for the subject: "${subject}". The ideas should focus on developing critical thinking, collaboration, and problem-solving skills. Format the output as a simple HTML unordered list (<ul><li>...</li></ul>).`;
+                const result = await callGeminiAPI(prompt);
+                
+                ideaLoader.classList.add('hidden');
+                ideasOutput.innerHTML = result;
+                ideasOutput.classList.remove('hidden');
+            });
+
+            // --- AI Essay Enhancer ---
+            const enhanceBtn = document.getElementById('enhance-essay-btn');
+            const essayInput = document.getElementById('essay-input');
+            const toneSelect = document.getElementById('essay-tone');
+            const essayOutput = document.getElementById('enhanced-essay-output');
+            const essayLoader = document.getElementById('essay-enhancer-loading');
+
+            enhanceBtn.addEventListener('click', async () => {
+                const essay = essayInput.value.trim();
+                if (!essay) {
+                    essayOutput.innerHTML = '<p class="text-red-500">Please paste your essay first.</p>';
+                    essayOutput.classList.remove('hidden');
+                    return;
+                }
+
+                const tone = toneSelect.value;
+                essayLoader.classList.remove('hidden');
+                essayOutput.classList.add('hidden');
+
+                const prompt = `Act as an expert university admissions advisor. Rewrite the following essay to be "${tone}". Do not add any new ideas, just improve the existing text. Keep the response to the revised essay text only, without any introductory phrases like "Here is the revised essay:".\n\nEssay:\n"""\n${essay}\n"""`;
+                const result = await callGeminiAPI(prompt);
+
+                essayLoader.classList.add('hidden');
+                essayOutput.innerText = result;
+                essayOutput.classList.remove('hidden');
+            });
+
+            // Set initial language and placeholders
+            setLanguage(currentLang);
+        });
+    </script>
+</body>
+</html>
+
+
+

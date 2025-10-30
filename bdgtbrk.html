@@ -19,17 +19,17 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            height: 300px;
-            max-height: 400px;
+            height: 400px;
+            max-height: 450px;
         }
         @media (min-width: 640px) {
             .chart-container {
-                height: 350px;
+                height: 400px;
             }
         }
         @media (min-width: 1024px) {
             .chart-container {
-                height: 400px;
+                height: 450px;
             }
         }
         .brand-teal {
@@ -97,16 +97,29 @@
         <section class="bg-white rounded-lg shadow-md p-6 md:p-8 mb-8">
             <h2 class="text-2xl font-bold text-gray-800 mb-4">Our 12-Month Startup Budget</h2>
             <p class="text-lg text-gray-700 mb-6">
-                Our venture needs **$138,000 USD** for the first 12 months. This budget is designed for focused growth and efficient operations, breaking down to a lean **$11,500 USD in total monthly costs**.
+                Our venture needs **$99,840 USD** for the first 12 months. This budget is designed for focused growth and efficient operations, breaking down to a lean **$8,320 USD in total monthly costs**.
             </p>
             <p class="text-lg text-gray-700 mb-6 text-center font-semibold">
-                Total 12-Month Cost Breakdown (Total: $138,000)
+                Total 12-Month Cost Breakdown (Total: $99,840)
             </p>
             <div class="chart-container">
-                <canvas id="budgetChart"></canvas>
+                <canvas id="budgetBarChart"></canvas>
             </div>
             <p class="text-sm text-gray-600 mt-4 text-center">
-                This chart shows the total 12-month cost for each major category. Operations & Staff and Platform Development represent our primary investments, ensuring a high-quality product and strong support for our school partners.
+                This chart shows the total 12-month cost for each major category. The Core Team represents our primary investment, ensuring a high-quality product and strong support for our school partners.
+            </p>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-md p-6 md:p-8 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Monthly Cost Structure</h2>
+            <p class="text-lg text-gray-700 mb-6">
+                Our monthly operating cost is **$8,320**. This chart shows how that budget is allocated. The Core Team and Onboarding/Training are our largest investments, reflecting our focus on quality service and support.
+            </p>
+            <div class="chart-container">
+                <canvas id="monthlyBudgetPieChart"></canvas>
+            </div>
+            <p class="text-sm text-gray-600 mt-4 text-center">
+                This doughnut chart shows the proportional breakdown of our $8,320 in fixed monthly costs.
             </p>
         </section>
 
@@ -115,15 +128,20 @@
             <p class="text-lg text-gray-700 mb-6">
                 Our primary revenue stream from private schools is a simple, affordable annual subscription. Our breakeven point is based on our modest monthly costs.
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-gray-50 rounded-lg p-6 text-center shadow-sm border border-gray-200">
                     <h3 class="text-xl font-semibold text-gray-700 mb-1">Pricing Model</h3>
                     <p class="text-5xl font-bold brand-teal">$50</p>
                     <p class="text-lg text-gray-600">Per Student / Per Year</p>
                 </div>
                 <div class="bg-gray-50 rounded-lg p-6 text-center shadow-sm border border-gray-200">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-1">Year 1 Target</h3>
+                    <p class="text-5xl font-bold brand-teal">1,000</p>
+                    <p class="text-lg text-gray-600">Subscribed Students</p>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-6 text-center shadow-sm border border-gray-200">
                     <h3 class="text-xl font-semibold text-gray-700 mb-1">Monthly Breakeven Point</h3>
-                    <p class="text-5xl font-bold brand-teal">2,757</p>
+                    <p class="text-5xl font-bold brand-teal">1,997</p>
                     <p class="text-lg text-gray-600">Subscribed Students</p>
                 </div>
             </div>
@@ -134,7 +152,7 @@
                 <canvas id="breakevenChart"></canvas>
             </div>
             <p class="text-sm text-gray-600 mt-4 text-center">
-                This chart shows our path to profitability. The dashed red line represents our fixed monthly costs of $11,500. The teal line shows how revenue grows as student subscriptions increase (at $4.17/month). The point where they intersect, at 2,757 students, is our breakeven point.
+                This chart shows our path to profitability. The dashed red line represents our fixed monthly costs of $8,320. The teal line shows how revenue grows as student subscriptions increase (at $4.17/month). The point where they intersect, at 1,997 students, is our breakeven point.
             </p>
         </section>
         
@@ -156,7 +174,7 @@
     <script>
         window.addEventListener('DOMContentLoaded', () => {
 
-            const chartColors = ['#00A0B0', '#E84A5F', '#FFC425', '#8C82FC', '#545E75'];
+            const chartColors = ['#00A0B0', '#E84A5F', '#FFC425', '#8C82FC', '#545E75', '#2E9D94', '#F48A66', '#BCB4E1'];
             const tickColor = '#374151';
 
             const tooltipTitleCallback = (tooltipItems) => {
@@ -215,20 +233,23 @@
                 }
             };
 
-            const budgetCtx = document.getElementById('budgetChart').getContext('2d');
-            new Chart(budgetCtx, {
+            const budgetBarCtx = document.getElementById('budgetBarChart').getContext('2d');
+            new Chart(budgetBarCtx, {
                 type: 'bar',
                 data: {
                     labels: [
-                        ['Platform', 'Development'],
-                        ['Operations &', 'Staff'],
-                        ['Marketing &', 'Sales'],
-                        ['Training &', 'Implementation'],
-                        'General Admin'
+                        'Core Team',
+                        ['Onboarding &', 'Training'],
+                        'Digital Marketing',
+                        'Software/Cloud',
+                        'Misc./Contingency',
+                        'Outreach/Events',
+                        'Office/Equipment',
+                        ['General Admin', '& Legal']
                     ],
                     datasets: [{
                         label: '12-Month Cost',
-                        data: [36000, 48000, 24000, 18000, 12000],
+                        data: [60000, 8400, 7200, 7200, 6000, 4800, 4200, 2040],
                         backgroundColor: chartColors,
                         borderRadius: 4
                     }]
@@ -283,21 +304,81 @@
                 }
             });
 
+            const monthlyBudgetPieCtx = document.getElementById('monthlyBudgetPieChart').getContext('2d');
+            new Chart(monthlyBudgetPieCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        'Core Team ($5,000)',
+                        'Onboarding ($700)',
+                        'Digital Marketing ($600)',
+                        'Software/Cloud ($600)',
+                        'Misc. ($500)',
+                        'Outreach ($400)',
+                        'Office ($350)',
+                        'Admin ($170)'
+                    ],
+                    datasets: [{
+                        label: 'Monthly Cost',
+                        data: [5000, 700, 600, 600, 500, 400, 350, 170],
+                        backgroundColor: chartColors,
+                        borderColor: '#FFFFFF',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        ...commonPlugins,
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                color: tickColor,
+                                font: {
+                                    size: 12
+                                },
+                                boxWidth: 20
+                            }
+                        },
+                        tooltip: {
+                            ...commonPlugins.tooltip,
+                            callbacks: {
+                                title: (tooltipItems) => {
+                                    return tooltipItems[0].label.split('(')[0].trim();
+                                },
+                                label: function(context) {
+                                    const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                                    const value = context.parsed;
+                                    const percentage = ((value / total) * 100).toFixed(1);
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value);
+                                    return `${label} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
             const breakevenCtx = document.getElementById('breakevenChart').getContext('2d');
             new Chart(breakevenCtx, {
                 type: 'line',
                 data: {
                     labels: [
                         '0',
+                        '500',
                         '1000',
-                        '2000',
-                        ['2,757', '(Breakeven)'],
-                        '4000',
-                        '5000'
+                        ['1,997', '(Breakeven)'],
+                        '3000',
+                        '4000'
                     ],
                     datasets: [{
                         label: 'Total Monthly Revenue',
-                        data: [0, 4170, 8340, 11500, 16680, 20850],
+                        data: [0, 2083, 4167, 8320, 12500, 16667],
                         borderColor: chartColors[0],
                         backgroundColor: 'rgba(0, 160, 176, 0.1)',
                         fill: true,
@@ -307,7 +388,7 @@
                         pointBorderColor: chartColors[2],
                     },{
                         label: 'Total Monthly Costs',
-                        data: [11500, 11500, 11500, 11500, 11500, 11500],
+                        data: [8320, 8320, 8320, 8320, 8320, 8320],
                         borderColor: chartColors[1],
                         borderDash: [5, 5],
                         fill: false,
@@ -398,5 +479,4 @@
     </script>
 </body>
 </html>
-
 
